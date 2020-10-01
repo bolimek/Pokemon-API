@@ -45,13 +45,13 @@ class PokemonTCGCatalog {
   }
 
   async pullCards () {
-    this.loader.hidden = true
+    this.loader.hidden = false
     this.button.hidden = true
     const { cards } = await this.fetchData(
       `${this.API_ENDPOINT}?page=${this.currentPage}&pageSize=${this.pageSize}`
     )
 
-    this.loader.hidden = false
+    this.loader.hidden = true
     this.button.hidden = false
 
     this.cards = [...this.cards, ...cards]
